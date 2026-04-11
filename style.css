@@ -246,9 +246,33 @@ h1, h2, h3, h4, h5, h6 {
 .logo-img {
   height: 44px;
   width: auto;
-  max-width: min(200px, 42vw);
+  max-width: min(120px, 28vw);
   display: block;
   object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.logo-tagline {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.85;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .nav-links {
@@ -985,7 +1009,15 @@ section {
 
 .footer-logo .logo-img {
   height: 38px;
-  max-width: 180px;
+  max-width: 100px;
+}
+
+.footer-logo .logo-name {
+  font-size: 1.15rem;
+}
+
+.footer-logo .logo-tagline {
+  font-size: 0.62rem;
 }
 
 .footer-about p {
