@@ -1385,8 +1385,24 @@ section {
 
 @media (max-width: 480px) {
   .hero-product-flow {
-    display: none;
+    display: block;
+    top: 90px;
+    bottom: 24px;
+    width: 54px;
+    opacity: 0.25;
   }
+
+  .hero-product-flow-left {
+    left: 6px;
+  }
+
+  .hero-product-flow-right {
+    right: 6px;
+  }
+
+  .hero-flow-track {
+    gap: 8px;
+  }   
 
   .container {
     padding: 0 16px;
