@@ -1,38 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-  // --- Navbar scroll behavior ---
   const navbar = document.getElementById('navbar');
   const backToTop = document.getElementById('backToTop');
 
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY > 50;
-    navbar.classList.toggle('scrolled', scrolled);
-    backToTop.classList.toggle('visible', window.scrollY > 400);
+    navbar?.classList.toggle('scrolled', scrolled);
+    backToTop?.classList.toggle('visible', window.scrollY > 400);
   });
 
-  backToTop.addEventListener('click', () => {
+  backToTop?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // --- Mobile hamburger menu ---
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
 
-  hamburger.addEventListener('click', () => {
+  hamburger?.addEventListener('click', () => {
     hamburger.classList.toggle('active');
-    navLinks.classList.toggle('open');
-    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    navLinks?.classList.toggle('open');
+    document.body.style.overflow = navLinks?.classList.contains('open') ? 'hidden' : '';
   });
 
-  navLinks.querySelectorAll('a').forEach(link => {
+  navLinks?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
+      hamburger?.classList.remove('active');
       navLinks.classList.remove('open');
       document.body.style.overflow = '';
     });
   });
 
-  // --- Active nav link on scroll ---
   const sections = document.querySelectorAll('section[id]');
 
   function updateActiveLink() {
@@ -41,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const top = section.offsetTop;
       const height = section.offsetHeight;
       const id = section.getAttribute('id');
-      const link = navLinks.querySelector(`a[href="#${id}"]`);
+      const link = navLinks?.querySelector(`a[href="#${id}"]`);
       if (link) {
         link.classList.toggle('active', scrollPos >= top && scrollPos < top + height);
       }
@@ -51,11 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateActiveLink);
   updateActiveLink();
 
-  // --- Animated counters ---
   function animateCounters() {
     document.querySelectorAll('.stat-number').forEach(counter => {
       if (counter.dataset.animated) return;
-      const target = parseInt(counter.dataset.target);
+      const target = parseInt(counter.dataset.target, 10);
       const duration = 2000;
       const start = performance.now();
 
@@ -88,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroStats = document.querySelector('.hero-stats');
   if (heroStats) statsObserver.observe(heroStats);
 
-  // --- Product category filter ---
   const categoryBtns = document.querySelectorAll('.category-btn');
   const productCards = document.querySelectorAll('.product-card');
 
@@ -109,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Fade-in on scroll ---
   const fadeTargets = document.querySelectorAll(
     '.about-content, .about-visual, .product-card, .feature-card, .contact-info, .contact-form'
   );
@@ -127,11 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fadeTargets.forEach(el => fadeObserver.observe(el));
 
-  // --- Contact form (Web3Forms) ---
   const form = document.getElementById('contactForm');
-  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitBtn = form?.querySelector('button[type="submit"]');
 
-  form.addEventListener('submit', async (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     submitBtn.disabled = true;
@@ -178,13 +170,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 });
-
-// Keyframe for product filter animation
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-`;
-document.head.appendChild(style);
