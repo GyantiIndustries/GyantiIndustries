@@ -1,5 +1,5 @@
 /* ========================================
-   gyanti-industries — Website Styles
+   gyanti-industries - Website Styles
    Business Standard CSS
    ======================================== */
 
@@ -26,24 +26,18 @@
   --bg-light: #f8fafc;
   --success: #059669;
   --error: #dc2626;
-
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 10px -4px rgba(0, 0, 0, 0.04);
   --shadow-xl: 0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 8px 16px -6px rgba(0, 0, 0, 0.05);
-
   --radius: 10px;
   --radius-sm: 6px;
   --radius-lg: 16px;
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* ========================================
-   Base & Reset
-   ======================================== */
 
 *, *::before, *::after {
   margin: 0;
@@ -116,10 +110,6 @@ h1, h2, h3, h4, h5, h6 {
 .highlight {
   color: var(--accent);
 }
-
-/* ========================================
-   Buttons
-   ======================================== */
 
 .btn {
   display: inline-flex;
@@ -202,10 +192,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: none;
 }
 
-/* ========================================
-   Navigation
-   ======================================== */
-
 .navbar {
   position: fixed;
   top: 0;
@@ -246,33 +232,9 @@ h1, h2, h3, h4, h5, h6 {
 .logo-img {
   height: 44px;
   width: auto;
-  max-width: min(120px, 28vw);
+  max-width: min(200px, 42vw);
   display: block;
   object-fit: contain;
-  flex-shrink: 0;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.logo-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--white);
-}
-
-.logo-tagline {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  opacity: 0.85;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
 }
 
 .nav-links {
@@ -348,10 +310,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ========================================
-   Hero Section
-   ======================================== */
-
 .hero {
   position: relative;
   min-height: 100vh;
@@ -375,6 +333,60 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8952e' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-product-flow {
+  position: absolute;
+  top: 96px;
+  bottom: 36px;
+  width: clamp(96px, 15vw, 180px);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.82;
+  mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+}
+
+.hero-product-flow-left {
+  left: clamp(18px, 4vw, 74px);
+}
+
+.hero-product-flow-right {
+  right: clamp(18px, 4vw, 74px);
+}
+
+.hero-flow-track {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 11px 0;
+  will-change: transform;
+}
+
+.hero-flow-track:hover {
+  animation-play-state: paused;
+}
+
+.hero-flow-track img {
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.24));
+  transform: rotate(-4deg);
+}
+
+.hero-product-flow-right img {
+  transform: rotate(4deg);
+}
+
+.flow-up {
+  animation: productFlowUp 28s linear infinite;
+}
+
+.flow-down {
+  animation: productFlowDown 30s linear infinite;
+  transform: translateY(calc(-50% - 11px));
 }
 
 .hero-content {
@@ -405,7 +417,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--white);
   margin-bottom: 20px;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 .hero-subtitle {
@@ -463,10 +475,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.04em;
 }
 
-/* ========================================
-   Section Common
-   ======================================== */
-
 section {
   padding: 96px 0;
 }
@@ -492,7 +500,7 @@ section {
 .section-header h2 {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   margin-bottom: 14px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 .section-desc {
@@ -502,10 +510,6 @@ section {
   margin: 0 auto;
   line-height: 1.7;
 }
-
-/* ========================================
-   About Section
-   ======================================== */
 
 .about {
   background: var(--gray-50);
@@ -630,10 +634,6 @@ section {
   color: var(--gray-500);
 }
 
-/* ========================================
-   Products Section
-   ======================================== */
-
 .product-categories {
   display: flex;
   justify-content: center;
@@ -693,7 +693,7 @@ section {
 .product-image {
   position: relative;
   height: 240px;
-  background: var(--gray-50);
+  background: linear-gradient(145deg, #f8fafc, #e8edf3);
   overflow: hidden;
 }
 
@@ -754,10 +754,6 @@ section {
   color: var(--gray-500);
   line-height: 1.6;
 }
-
-/* ========================================
-   Why Choose Us
-   ======================================== */
 
 .why-us {
   background: var(--primary);
@@ -836,10 +832,6 @@ section {
   font-size: 0.9rem;
   line-height: 1.7;
 }
-
-/* ========================================
-   Contact Section
-   ======================================== */
 
 .contact {
   background: var(--gray-50);
@@ -949,7 +941,7 @@ section {
   font-size: 0.9rem;
   color: var(--dark);
   transition: var(--transition);
-  background: var(--white);
+  background-color: var(--white);
 }
 
 .form-group input::placeholder,
@@ -985,10 +977,6 @@ section {
   padding-right: 38px;
 }
 
-/* ========================================
-   Footer
-   ======================================== */
-
 .footer {
   background: var(--dark);
   padding: 56px 0 0;
@@ -1009,15 +997,7 @@ section {
 
 .footer-logo .logo-img {
   height: 38px;
-  max-width: 100px;
-}
-
-.footer-logo .logo-name {
-  font-size: 1.15rem;
-}
-
-.footer-logo .logo-tagline {
-  font-size: 0.62rem;
+  max-width: 180px;
 }
 
 .footer-about p {
@@ -1119,10 +1099,6 @@ section {
   transform: translateY(-1px);
 }
 
-/* ========================================
-   Back to Top
-   ======================================== */
-
 .back-to-top {
   position: fixed;
   bottom: 28px;
@@ -1158,10 +1134,6 @@ section {
   transform: translateY(-2px);
 }
 
-/* ========================================
-   WhatsApp Float
-   ======================================== */
-
 .whatsapp-float {
   position: fixed;
   bottom: 28px;
@@ -1169,7 +1141,7 @@ section {
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: #25D366;
+  background: #25d366;
   color: var(--white);
   font-size: 1.5rem;
   display: flex;
@@ -1186,10 +1158,6 @@ section {
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
 }
 
-/* ========================================
-   Animations
-   ======================================== */
-
 .fade-in {
   opacity: 0;
   transform: translateY(24px);
@@ -1200,10 +1168,6 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* ========================================
-   Form Success Toast
-   ======================================== */
 
 .toast {
   position: fixed;
@@ -1235,10 +1199,6 @@ section {
   flex-shrink: 0;
 }
 
-/* ========================================
-   Focus & Accessibility
-   ======================================== */
-
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -1249,11 +1209,44 @@ section {
   outline-color: var(--accent-light);
 }
 
-/* ========================================
-   Responsive Design
-   ======================================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes productFlowUp {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-50% - 11px));
+  }
+}
+
+@keyframes productFlowDown {
+  from {
+    transform: translateY(calc(-50% - 11px));
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
 
 @media (max-width: 1024px) {
+  .hero-product-flow {
+    width: clamp(80px, 13vw, 130px);
+    opacity: 0.55;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1270,6 +1263,25 @@ section {
 }
 
 @media (max-width: 768px) {
+  .hero-product-flow {
+    top: 92px;
+    bottom: 42px;
+    width: 78px;
+    opacity: 0.28;
+  }
+
+  .hero-product-flow-left {
+    left: 10px;
+  }
+
+  .hero-product-flow-right {
+    right: 10px;
+  }
+
+  .hero-flow-track {
+    gap: 8px;
+  }
+
   .nav-links {
     display: none;
     position: fixed;
@@ -1367,6 +1379,10 @@ section {
 }
 
 @media (max-width: 480px) {
+  .hero-product-flow {
+    display: none;
+  }
+
   .container {
     padding: 0 16px;
   }
@@ -1403,15 +1419,20 @@ section {
   }
 }
 
-/* ========================================
-   Print Styles
-   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .flow-up,
+  .flow-down {
+    animation: none;
+    transform: translateY(0);
+  }
+}
 
 @media print {
   .navbar,
   .back-to-top,
   .whatsapp-float,
   .hero-bg-pattern,
+  .hero-product-flow,
   .footer-social {
     display: none !important;
   }
