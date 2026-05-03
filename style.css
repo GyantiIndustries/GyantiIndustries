@@ -393,7 +393,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 90px 0 48px;
+  padding: 75px 0 40px;
 }
 
 .hero-badge {
