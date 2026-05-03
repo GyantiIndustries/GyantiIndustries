@@ -230,9 +230,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-img {
-  height: 44px;
+  height: 70px;
   width: auto;
-  max-width: min(200px, 42vw);
+  max-width: min(280px, 48vw);
   display: block;
   object-fit: contain;
 }
