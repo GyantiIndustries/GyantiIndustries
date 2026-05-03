@@ -393,7 +393,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 130px 0 90px;
+  padding: 90px 0 48px;
 }
 
 .hero-badge {
@@ -433,7 +433,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 64px;
+  margin-bottom: 20px;
 }
 
 .hero-stats {
@@ -441,7 +441,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: 56px;
   flex-wrap: wrap;
-  padding-top: 40px;
+  padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   max-width: 600px;
   margin: 0 auto;
