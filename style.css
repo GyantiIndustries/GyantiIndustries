@@ -1274,6 +1274,11 @@ section {
     left: 10px;
   }
 
+  .logo-img {
+     height: 64px;
+     max-width: 150px;
+  }
+
   .hero-product-flow-right {
     right: 10px;
   }
@@ -1318,7 +1323,7 @@ section {
   }
 
   .hero-content {
-    padding: 120px 0 44px;
+    padding: 130px 0 44px;
   }
 
   .hero h1 {
